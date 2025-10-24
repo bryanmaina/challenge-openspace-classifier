@@ -1,0 +1,59 @@
+import pytest
+
+from challenge_openspace_classifier.utils.seat import Seat, SeatNotAvailabeError
+
+
+@pytest.fixture
+def empty_seat() -> Seat:
+    """Provides a fresh, empty seat instance for testing"""
+    return Seat()
+
+
+@pytest.fixture
+def occupied_seat() -> Seat:
+    """Provides a fresh, empty seat instance for testing"""
+    return Seat(occupant="Astha")
+
+
+def test_initialization_empty(empty_seat):
+    assert empty_seat.occupant is None
+    assert empty_seat.free
+
+
+def test_initialization_occupied(occupied_seat):
+    assert occupied_seat.occupant == "Astha"
+    assert not occupied_seat.free
+
+
+def test_set_occupant_success(empty_seat):
+    empty_seat.set_occupant("Kristin")
+    assert empty_seat.occupant == "Kristin"
+    assert not empty_seat.free
+
+
+def test_set_occupant_invalid(empty_seat):
+    with pytest.raises(ValueError) as excinfo:
+        empty_seat.set_occupant("")
+    assert "A string is required. (occupant='')" in str(excinfo.value)
+    assert empty_seat.occupant is None
+
+
+def test_set_occupant_failure(occupied_seat):
+    with pytest.raises(SeatNotAvailabeError) as excinfo:
+        occupied_seat.set_occupant("Bryan")
+    assert "already occupied by Astha" in str(excinfo.value)
+    assert occupied_seat.occupant == "Astha"
+
+
+def test_remove_occupant_success(occupied_seat):
+    removed_occupant = occupied_seat.remove_occupant()
+    assert removed_occupant == "Astha"
+    assert occupied_seat.occupant is None
+    assert occupied_seat.free
+
+
+def test_remove_occupant_empty(empty_seat):
+    removed_occupant = empty_seat.remove_occupant()
+    assert removed_occupant is None
+    assert empty_seat.occupant is None
+    assert empty_seat.free
