@@ -1,3 +1,5 @@
+from typing import List
+
 from challenge_openspace_classifier.utils.seat import Seat
 
 
@@ -8,7 +10,7 @@ class TableIsFullError(Exception):
 class Table:
     def __init__(self, capacity: int) -> None:
         self.__capacity = capacity
-        self.__seats: list[Seat] = [Seat() for _ in range(capacity)]
+        self.__seats: List[Seat] = [Seat() for _ in range(capacity)]
 
     @property
     def capacity(self) -> int:
