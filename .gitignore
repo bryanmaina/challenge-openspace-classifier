@@ -12,3 +12,4 @@ wheels/
 
 # Test coverage report
 .coverage
+data/clean_new_colleagues.csv

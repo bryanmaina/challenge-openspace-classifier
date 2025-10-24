@@ -63,4 +63,3 @@ def test_from_csv_missing_header_raise_key_error(standard_csv_path):
 def test_from_csv_empty_csv_file(empty_csv_file_path: Path):
     result = FileUtils.from_csv(empty_csv_file_path, "First Name")
     assert result == []
-
