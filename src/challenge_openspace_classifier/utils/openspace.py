@@ -35,20 +35,44 @@ class OpenSpace:
     def seat_people_randomly(self, names: List[str]) -> List[str]:
         """Randomly distribute people across tables.
 
-        - Shuffles the provided list to ensure random assignment.
-        - Fills tables sequentially (any free table) with the shuffled names.
-        - Returns a list of names that could not be seated if capacity is exceeded.
+        Rules with a goal to avoid single-person tables when possible:
+        - Shuffle the provided list to ensure randomization.
+        - Prefer adding to tables that already have someone (especially tables with exactly 1 occupant).
+        - Open a new empty table only when at least two people remain to be seated, or no non-empty table has space.
+        - Return a list of names that could not be seated if capacity is exceeded.
         """
         names_shuffled = list(filter(None, (n.strip() for n in names)))
         random.shuffle(names_shuffled)
 
+        # Use Table.capacity and Table.left_capacity to derive occupancy and availability
+        def occupancy(table: Table) -> int:
+            return table.capacity - table.left_capacity
+
         unseated: List[str] = []
-        for name in names_shuffled:
-            available_table = next(
-                (table for table in self.__tables if table.has_free_spot()), None
-            )
-            if available_table:
-                available_table.assign_seat(name)
+        total = len(names_shuffled)
+        for idx, name in enumerate(names_shuffled):
+            remaining = total - idx
+            free_tables = [t for t in self.__tables if t.left_capacity > 0]
+            if not free_tables:
+                unseated.append(name)
+                continue
+
+            non_empty_with_space = [t for t in free_tables if occupancy(t) > 0]
+            if non_empty_with_space:
+                # Prefer the table with the smallest positive occupancy (1 first), to pair singles
+                selected = min(non_empty_with_space, key=occupancy)
+                selected.assign_seat(name)
+                continue
+
+            # Only empty tables have space at this point
+            empty_tables = [t for t in free_tables if occupancy(t) == 0]
+            if empty_tables:
+                # Avoid opening a table for a single last person when possible
+                if remaining >= 2:
+                    empty_tables[0].assign_seat(name)
+                else:
+                    # Last person and only empty tables left; to avoid someone alone at a table, leave unseated
+                    unseated.append(name)
             else:
                 unseated.append(name)
 
