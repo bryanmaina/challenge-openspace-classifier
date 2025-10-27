@@ -12,6 +12,10 @@ class Table:
         self.__capacity = capacity
         self.__seats: List[Seat] = [Seat() for _ in range(capacity)]
 
+    def __str__(self) -> str:
+        occ = ", ".join(map(str, self.__seats))
+        return f"Table(capacity={self.__capacity}, left={self.left_capacity},\noccupants=[{occ}])"
+
     @property
     def capacity(self) -> int:
         return self.__capacity

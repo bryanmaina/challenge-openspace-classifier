@@ -53,3 +53,7 @@ def main() -> None:
     if unseated:
         print("Unseated people (not enough capacity):")
         print("\n".join(f"- {name}" for name in unseated))
+
+    # Display all tables and their occupants using __str__ representations
+    print("\nRoom layout:")
+    print(space)

@@ -14,6 +14,11 @@ class OpenSpace:
             Table(seats_per_table) for _ in range(tables_per_room)
         ]
 
+    def __str__(self) -> str:
+        header = f"OpenSpace(tables={len(self.tables)}, capacity={self.capacity}, left={self.left_capacity})"
+        tables_block = "\n".join(str(table) for table in self.__tables)
+        return header + ("\n" + tables_block if tables_block else "")
+
     @property
     def tables(self) -> List[Table]:
         return self.__tables

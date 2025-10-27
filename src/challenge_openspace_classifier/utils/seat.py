@@ -1,15 +1,20 @@
 from typing import Optional
 
 
-class SeatNotAvailabeError(Exception):
-    """Raised why trying to set an occcupant on an already occupied seat"""
-
-    pass
+class SeatNotAvailableError(Exception):
+    """Raised why trying to set an occupant on an already occupied seat"""
 
 
 class Seat:
     def __init__(self, occupant: Optional[str] = None) -> None:
         self.__occupant = occupant
+
+    def __str__(self) -> str:
+        return (
+            "Seat(empty)"
+            if self.__occupant is None
+            else f"Seat(occupant='{self.__occupant}')"
+        )
 
     @property
     def free(self) -> bool:
@@ -25,7 +30,7 @@ class Seat:
                 f"The 'occupant' attribute cannot be None. A string is required. ({occupant=})"
             )
         if not self.free:
-            raise SeatNotAvailabeError(
+            raise SeatNotAvailableError(
                 f"Cannot set occupant: container is already occupied by {self.__occupant}."
             )
         self.__occupant = occupant
