@@ -1,5 +1,3 @@
-from typing import List, Optional
-
 from challenge_openspace_classifier.utils.seat import Seat
 
 
@@ -10,7 +8,7 @@ class TableIsFullError(Exception):
 class Table:
     def __init__(self, capacity: int) -> None:
         self.__capacity = capacity
-        self.__seats: List[Seat] = [Seat() for _ in range(capacity)]
+        self.__seats: list[Seat] = [Seat() for _ in range(capacity)]
 
     def __str__(self) -> str:
         occ = ", ".join(map(str, self.__seats))
@@ -37,7 +35,7 @@ class Table:
             )
 
     @property
-    def occupants(self) -> List[Optional[str]]:
+    def occupants(self) -> list[str | None]:
         """
         Return the current occupants per seat position.
         Empty seats are represented by None.

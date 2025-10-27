@@ -1,12 +1,9 @@
-from typing import Optional
-
-
 class SeatNotAvailableError(Exception):
     """Raised why trying to set an occupant on an already occupied seat"""
 
 
 class Seat:
-    def __init__(self, occupant: Optional[str] = None) -> None:
+    def __init__(self, occupant: str | None = None) -> None:
         self.__occupant = occupant
 
     def __str__(self) -> str:
@@ -21,7 +18,7 @@ class Seat:
         return self.__occupant is None
 
     @property
-    def occupant(self) -> Optional[str]:
+    def occupant(self) -> str | None:
         return self.__occupant
 
     def set_occupant(self, occupant: str) -> None:
@@ -35,7 +32,7 @@ class Seat:
             )
         self.__occupant = occupant
 
-    def remove_occupant(self) -> Optional[str]:
+    def remove_occupant(self) -> str | None:
         if self.__occupant is None:
             return self.__occupant
         prev = self.__occupant

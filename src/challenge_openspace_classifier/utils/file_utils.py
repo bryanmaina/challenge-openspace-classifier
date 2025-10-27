@@ -1,13 +1,13 @@
 import csv
 from pathlib import Path
-from typing import Iterable, List
+from collections.abc import Iterable
 
 
 class FileUtils:
     @staticmethod
-    def from_csv(filepath: Path, header_name: str) -> List[str]:
+    def from_csv(filepath: Path, header_name: str) -> list[str]:
         path = Path(filepath)
-        data_list: List[str] = []
+        data_list: list[str] = []
         try:
             with open(path, mode="r", newline="", encoding="utf-8") as file:
                 reader = csv.DictReader(file)

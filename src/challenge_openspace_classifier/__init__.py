@@ -1,12 +1,11 @@
 import sys
 from pathlib import Path
-from typing import List
 
 from challenge_openspace_classifier.utils.file_utils import FileUtils
 from challenge_openspace_classifier.utils.openspace import OpenSpace
 
 
-def _clean_names(names: List[str]) -> List[str]:
+def _clean_names(names: list[str]) -> list[str]:
     return [n.strip() for n in names if isinstance(n, str) and n.strip()]
 
 

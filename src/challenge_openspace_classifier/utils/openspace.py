@@ -1,16 +1,15 @@
 import random
-from typing import List, Optional
 
 from .table import Table
 
 
 class OpenSpace:
     def __init__(
-        self, tables_per_room: Optional[int] = 6, seats_per_table: Optional[int] = 4
+        self, tables_per_room: int | None = 6, seats_per_table: int | None = 4
     ) -> None:
         if tables_per_room is None or seats_per_table is None:
             raise ValueError("tables_per_room and seats_per_table must be provided")
-        self.__tables: List[Table] = [
+        self.__tables: list[Table] = [
             Table(seats_per_table) for _ in range(tables_per_room)
         ]
 
@@ -20,7 +19,7 @@ class OpenSpace:
         return header + ("\n" + tables_block if tables_block else "")
 
     @property
-    def tables(self) -> List[Table]:
+    def tables(self) -> list[Table]:
         return self.__tables
 
     @property
@@ -32,7 +31,7 @@ class OpenSpace:
     def left_capacity(self) -> int:
         return sum(t.left_capacity for t in self.__tables)
 
-    def seat_people_randomly(self, names: List[str]) -> List[str]:
+    def seat_people_randomly(self, names: list[str]) -> list[str]:
         """Randomly distribute people across tables.
 
         Rules with a goal to avoid single-person tables when possible:
@@ -80,7 +79,7 @@ class OpenSpace:
 
     def formatted_layout(self) -> str:
         """Return a multi-line string showing all tables and seat occupants."""
-        lines: List[str] = []
+        lines: list[str] = []
         for idx, table in enumerate(self.__tables, start=1):
             occ = [o if o is not None else "-" for o in table.occupants]
             lines.append(f"Table {idx}: [" + ", ".join(occ) + "]")
