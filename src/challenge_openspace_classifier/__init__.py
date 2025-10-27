@@ -56,4 +56,4 @@ def main() -> None:
 
     # Display all tables and their occupants using __str__ representations
     print("\nRoom layout:")
-    print(space)
+    print(space.formatted_layout())

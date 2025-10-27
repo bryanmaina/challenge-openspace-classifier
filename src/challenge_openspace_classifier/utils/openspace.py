@@ -53,3 +53,11 @@ class OpenSpace:
                 unseated.append(name)
 
         return unseated
+
+    def formatted_layout(self) -> str:
+        """Return a multi-line string showing all tables and seat occupants."""
+        lines: List[str] = []
+        for idx, table in enumerate(self.__tables, start=1):
+            occ = [o if o is not None else "-" for o in table.occupants]
+            lines.append(f"Table {idx}: [" + ", ".join(occ) + "]")
+        return "\n".join(lines)

@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from challenge_openspace_classifier.utils.seat import Seat
 
@@ -35,3 +35,11 @@ class Table:
             raise TableIsFullError(
                 f"Cannot assign seat: The table is currently full (capacity: {self.left_capacity}/{self.__capacity})"
             )
+
+    @property
+    def occupants(self) -> List[Optional[str]]:
+        """
+        Return the current occupants per seat position.
+        Empty seats are represented by None.
+        """
+        return [seat.occupant for seat in self.__seats]
