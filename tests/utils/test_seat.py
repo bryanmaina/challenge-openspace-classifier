@@ -1,6 +1,6 @@
 import pytest
 
-from challenge_openspace_classifier.utils.seat import Seat, SeatNotAvailabeError
+from challenge_openspace_classifier.utils.seat import Seat, SeatNotAvailableError
 
 
 @pytest.fixture
@@ -39,7 +39,7 @@ def test_set_occupant_invalid(empty_seat):
 
 
 def test_set_occupant_failure(occupied_seat):
-    with pytest.raises(SeatNotAvailabeError) as excinfo:
+    with pytest.raises(SeatNotAvailableError) as excinfo:
         occupied_seat.set_occupant("Bryan")
     assert "already occupied by Astha" in str(excinfo.value)
     assert occupied_seat.occupant == "Astha"
