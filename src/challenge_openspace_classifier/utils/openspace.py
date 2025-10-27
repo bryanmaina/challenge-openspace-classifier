@@ -44,7 +44,7 @@ class OpenSpace:
         names_shuffled = list(filter(None, (n.strip() for n in names)))
         random.shuffle(names_shuffled)
 
-        # Use Table.capacity and Table.left_capacity to derive occupancy and availability
+        #  to derive occupancy for a given table
         def occupancy(table: Table) -> int:
             return table.capacity - table.left_capacity
 

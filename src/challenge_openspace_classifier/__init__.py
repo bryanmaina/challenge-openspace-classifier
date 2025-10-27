@@ -51,7 +51,13 @@ def main() -> None:
         f"Total names: {len(names)} | Seated: {seated_count} | Unseated: {len(unseated)}"
     )
     if unseated:
-        print("Unseated people (not enough capacity):")
+        people_v_pers = "people" if (len(unseated) > 1) else "person"
+        reason = (
+            "could only seat this person alone on a table"
+            if space.left_capacity > 0
+            else "not enough capacity"
+        )
+        print(f"Unseated {people_v_pers} ({reason}):")
         print("\n".join(f"- {name}" for name in unseated))
 
     # Display all tables and their occupants using __str__ representations
