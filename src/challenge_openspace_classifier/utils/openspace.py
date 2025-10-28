@@ -1,6 +1,7 @@
+import json
 import random
 
-from .table import Table
+from challenge_openspace_classifier.utils.table import Table
 
 
 class OpenSpace:
@@ -47,7 +48,7 @@ class OpenSpace:
         def occupancy(table: Table) -> int:
             return table.capacity - table.left_capacity
 
-        unseated: List[str] = []
+        unseated: list[str] = []
         total = len(names_shuffled)
         for idx, name in enumerate(names_shuffled):
             remaining = total - idx
@@ -84,3 +85,18 @@ class OpenSpace:
             occ = [o if o is not None else "-" for o in table.occupants]
             lines.append(f"Table {idx}: [" + ", ".join(occ) + "]")
         return "\n".join(lines)
+
+    def to_json(self):
+        def get_object_dict(obj):
+            d = obj.__dict__.copy()
+            for key, value in obj.__class__.__dict__.items():
+                if isinstance(value, property):
+                    d[key] = getattr(obj, key)
+            return d
+
+        return json.dumps(
+            self,
+            default=lambda o: get_object_dict(o),
+            indent=4,
+            ensure_ascii=False,
+        )
