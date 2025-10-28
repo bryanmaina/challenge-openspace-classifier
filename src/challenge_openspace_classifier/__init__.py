@@ -10,8 +10,8 @@ def _clean_names(names: list[str]) -> list[str]:
     return [n.strip() for n in names if isinstance(n, str) and n.strip()]
 
 
-def main() -> None:
-    # Get path from argv or prompt the user
+def get_source_path() -> Path | None:
+    """Get path from argv or prompt the user."""
     path_arg = sys.argv[1] if len(sys.argv) > 1 else None
     if not path_arg:
         try:
@@ -20,15 +20,17 @@ def main() -> None:
             ).strip()
         except EOFError:
             print("No input provided. Exiting.")
-            return
+            return None
 
     source_path = Path(path_arg)
-
     if not source_path.exists():
         print(f"Error: File not found at {source_path}")
-        return
+        return None
+    return source_path
 
-    # Try reading 'Names' column; if missing, create a clean_ file with a header and try again
+
+def load_and_clean_names(source_path: Path) -> list[str]:
+    """Load names from a CSV file, cleaning it if necessary."""
     try:
         names = FileUtils.from_csv(source_path, "Names")
     except KeyError:
@@ -36,16 +38,11 @@ def main() -> None:
             source_path.parent, source_path.name, ["Names"]
         )
         names = FileUtils.from_csv(clean_path, "Names")
+    return _clean_names(names)
 
-    names = _clean_names(names)
-    if not names:
-        print("No names found to seat.")
-        return
 
-    # Create an OpenSpace and distribute randomly
-    space = OpenSpace()
-    unseated = space.seat_people_randomly(names)
-
+def print_summary(names: list[str], unseated: list[str], space: OpenSpace):
+    """Prints a summary of the seating arrangement."""
     seated_count = len(names) - len(unseated)
     print(
         f"Total names: {len(names)} | Seated: {seated_count} | Unseated: {len(unseated)}"
@@ -59,12 +56,29 @@ def main() -> None:
         )
         print(f"Unseated {people_v_pers} ({reason}):")
         print("\n".join(f"- {name}" for name in unseated))
-
-    # Display all tables and their occupants using __str__ representations
+    # Display all tables and their occupants
     print("\nRoom layout:")
     print(space.formatted_layout())
+
+
+def main() -> None:
+    source_path = get_source_path()
+    if not source_path:
+        return
+
+    names = load_and_clean_names(source_path)
+    if not names:
+        print("No names found to seat.")
+        return
+
+    # Create an OpenSpace and distribute randomly
+    space = OpenSpace()
+    unseated = space.seat_people_randomly(names)
+
+    print_summary(names, unseated, space)
 
     # Save the state of the openspace to a JSON file
     output_path = source_path.parent / "openspace.json"
     FileUtils.save_to_json(output_path, space)
     print(f"\nOpenSpace state saved to {output_path}")
+

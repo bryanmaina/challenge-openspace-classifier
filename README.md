@@ -43,18 +43,40 @@ Table 3: [Ira, Jules, Kai, Lee]
 Table 4: [Mona, Noel, Oak, Pax]
 Table 5: [Quinn, Rei, Sky, Tay]
 Table 6: [Uma, Val, Wes, Xan]
+
+OpenSpace state saved to data/openspace.json
 ```
+
+or
+
+```
+Total names: 21 | Seated: 20 | Unseated: 1
+Unseated person (could only seat this person alone on a table):
+- Anna
+
+Room layout:
+Table 1: [Héloïse, Michiel, Kristin, Hamideh]
+Table 2: [Frédéric, Viktor, Esra, Welederufeal]
+Table 3: [Pierrick, Živile, Sandrine, Imran]
+Table 4: [Amine, Intan K., Faranges, Nancy]
+Table 5: [Aleksei, Jens, Tim, Astha]
+Table 6: [-, -, -, -]
+
+OpenSpace state saved to data/openspace.json
+```
+
+OpenSpace state saved to data/openspace.json
 
 Note: The exact names per table will vary because the people are shuffled
 randomly each run.
 
 ## JSON Output
 
-In addition to the console output, the application saves a detailed layout of the
-openspace in a JSON file named `openspace.json`. This file is located in the
+In addition to the console output, the application saves a detailed layout of
+the openspace in a JSON file named `openspace.json`. This file is located in the
 same directory as the input CSV file.
 
-This file includes details about the tables, seats, and occupants. 
+This file includes details about the tables, seats, and occupants.
 
 ## CSV format
 
