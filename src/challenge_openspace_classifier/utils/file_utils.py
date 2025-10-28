@@ -1,6 +1,10 @@
 import csv
-from pathlib import Path
+import json
 from collections.abc import Iterable
+from pathlib import Path
+
+from challenge_openspace_classifier.utils.openspace import OpenSpace
+from challenge_openspace_classifier.utils.openspace_encoder import OpenspaceEncoder
 
 
 class FileUtils:
@@ -40,3 +44,11 @@ class FileUtils:
             with open(dst_path, mode="w", encoding="utf-8") as out_file:
                 out_file.write(header_line)
         return dst_path
+
+    @staticmethod
+    def save_to_json(filepath: Path, obj: object) -> None:
+        with open(filepath, mode="w", encoding="utf-8") as file:
+            if isinstance(obj, OpenSpace):
+                json.dump(obj, file, indent=4, cls=OpenspaceEncoder)
+            else:
+                json.dump(obj, file, indent=4)

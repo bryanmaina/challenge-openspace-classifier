@@ -62,3 +62,8 @@ def main() -> None:
     # Display all tables and their occupants using __str__ representations
     print("\nRoom layout:")
     print(space.formatted_layout())
+
+    # Save the state of the openspace to a JSON file
+    output_path = source_path.parent / "openspace.json"
+    FileUtils.save_to_json(output_path, space)
+    print(f"\nOpenSpace state saved to {output_path}")
