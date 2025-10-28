@@ -12,7 +12,6 @@ class FileUtils:
     def register_encoder(cls, data_class: Type) -> Callable[[Type], Type]:
         def decorator(encoder_class: Type) -> Type:
             cls._ENCODER_REGISTRY[data_class] = encoder_class
-
             return encoder_class
 
         return decorator

@@ -1,9 +1,9 @@
 import sys
 from pathlib import Path
 
+import challenge_openspace_classifier.utils.openspace_encoder
 from challenge_openspace_classifier.utils.file_utils import FileUtils
 from challenge_openspace_classifier.utils.openspace import OpenSpace
-import challenge_openspace_classifier.utils.openspace_encoder
 
 
 def _clean_names(names: list[str]) -> list[str]:

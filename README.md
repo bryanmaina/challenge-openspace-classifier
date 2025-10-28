@@ -48,6 +48,14 @@ Table 6: [Uma, Val, Wes, Xan]
 Note: The exact names per table will vary because the people are shuffled
 randomly each run.
 
+## JSON Output
+
+In addition to the console output, the application saves a detailed layout of the
+openspace in a JSON file named `openspace.json`. This file is located in the
+same directory as the input CSV file.
+
+This file includes details about the tables, seats, and occupants. 
+
 ## CSV format
 
 - Preferred: a header row with a column named Names
