@@ -51,7 +51,7 @@ def test_from_csv_file_not_found(capfd: pytest.CaptureFixture[str], tmp_path: Pa
     assert f"Error: File not found at {non_existent_path}" in out
 
 
-def test_from_csv_missing_header_raise_key_error(standard_csv_path):
+def test_from_csv_missing_header_raise_key_error(standard_csv_path: Path):
     with pytest.raises(KeyError) as excinfo:
         FileUtils.from_csv(standard_csv_path, "T")
     assert "does not contain a header named 'T'" in str(excinfo.value)
