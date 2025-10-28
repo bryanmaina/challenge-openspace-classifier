@@ -14,14 +14,45 @@ how many people were seated and who couldn't be seated if capacity is exceeded.
 
 ## Prerequisites
 
-- Python 3.12+
+- Python 3.12+ (uv will install a version of python that is local to the
+  project)
 - [Install uv on your system.](https://docs.astral.sh/uv/getting-started/installation/)
+
+## Quick start
+
+- Using example data in this repository:
+
+```cmd
+uv run app data\new_colleagues.csv
+```
+
+You should see a summary and the room layout printed to the console.
+
+## Example output
+
+```
+Total names: 26 | Seated: 24 | Unseated: 2
+Unseated people (not enough capacity):
+- Casey
+- Drew
+
+Room layout:
+Table 1: [Alice, Bob, Charlie, Dana]
+Table 2: [Eli, Fran, Gus, Harper]
+Table 3: [Ira, Jules, Kai, Lee]
+Table 4: [Mona, Noel, Oak, Pax]
+Table 5: [Quinn, Rei, Sky, Tay]
+Table 6: [Uma, Val, Wes, Xan]
+```
+
+Note: The exact names per table will vary because the people are shuffled
+randomly each run.
 
 ## CSV format
 
 - Preferred: a header row with a column named Names
 - Also supported: a single-column CSV without a header (the program will create
-  clean_<filename> with a Names header and use that)
+  clean csv file with a Names header and use that)
 
 ## Running the app
 
@@ -30,19 +61,19 @@ You can pass the CSV path as an argument or run interactively.
 - With an argument:
 
 ```cmd
-uv run challenge-openspace-classifier path\to\your\people.csv
+uv run app path\to\your\people.csv
 ```
 
 - Interactively (you will be prompted for the path):
 
 ```cmd
-uv run challenge-openspace-classifier
+uv run app
 ```
 
 Example data file in this repo: data\new_colleagues.csv (single-column list
 without header)
 
-## Output
+### Output
 
 The program prints a summary like:
 
@@ -75,51 +106,8 @@ uv run pytest -v
 Run test coverage and report with line numbers:
 
 ```cmd
-uv run pytest --cov=challenge_openspace_classifier --cov-report=term-missing
+uv run pytest --cov-report=term-missing
 ```
-
-## Installation
-
-If you don't already have uv installed, follow the official guide:
-https://docs.astral.sh/uv/getting-started/installation/
-
-Once uv is available:
-
-- Create and activate a virtual environment (Windows PowerShell):
-  - uv venv
-  - .\.venv\Scripts\Activate.ps1
-- Install the project and dev tools:
-  - uv sync --group dev
-
-This will install the package and create the console command
-challenge-openspace-classifier.
-
-## Quick start
-
-- Using example data in this repository:
-  - uv run challenge-openspace-classifier data\new_colleagues.csv
-
-You should see a summary and the room layout printed to the console.
-
-## Example output
-
-```
-Total names: 26 | Seated: 24 | Unseated: 2
-Unseated people (not enough capacity):
-- Casey
-- Drew
-
-Room layout:
-Table 1: [Alice, Bob, Charlie, Dana]
-Table 2: [Eli, Fran, Gus, Harper]
-Table 3: [Ira, Jules, Kai, Lee]
-Table 4: [Mona, Noel, Oak, Pax]
-Table 5: [Quinn, Rei, Sky, Tay]
-Table 6: [Uma, Val, Wes, Xan]
-```
-
-Note: The exact names per table will vary because the people are shuffled
-randomly each run.
 
 ## Troubleshooting
 

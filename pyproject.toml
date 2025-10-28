@@ -10,7 +10,7 @@ requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-challenge-openspace-classifier = "challenge_openspace_classifier:main"
+app = "challenge_openspace_classifier:main"
 
 [build-system]
 requires = ["uv_build>=0.9.2,<0.10.0"]
