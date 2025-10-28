@@ -1,9 +1,11 @@
 import json
 from typing import Any
 
+from challenge_openspace_classifier.utils.file_utils import FileUtils
 from challenge_openspace_classifier.utils.openspace import OpenSpace
 
 
+@FileUtils.register_encoder(OpenSpace)
 class OpenspaceEncoder(json.JSONEncoder):
     def default(self, space: OpenSpace) -> dict[str, Any]:
         d = space.__dict__.copy()

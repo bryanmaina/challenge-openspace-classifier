@@ -1,0 +1,404 @@
+{
+    "_OpenSpace__tables": [
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Nancy",
+                    "free": false,
+                    "occupant": "Nancy"
+                },
+                {
+                    "_Seat__occupant": "Faranges",
+                    "free": false,
+                    "occupant": "Faranges"
+                },
+                {
+                    "_Seat__occupant": "Intan K.",
+                    "free": false,
+                    "occupant": "Intan K."
+                },
+                {
+                    "_Seat__occupant": "Fr\u00e9d\u00e9ric",
+                    "free": false,
+                    "occupant": "Fr\u00e9d\u00e9ric"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Nancy",
+                "Faranges",
+                "Intan K.",
+                "Fr\u00e9d\u00e9ric"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Amine",
+                    "free": false,
+                    "occupant": "Amine"
+                },
+                {
+                    "_Seat__occupant": "Imran",
+                    "free": false,
+                    "occupant": "Imran"
+                },
+                {
+                    "_Seat__occupant": "Tim",
+                    "free": false,
+                    "occupant": "Tim"
+                },
+                {
+                    "_Seat__occupant": "Anna",
+                    "free": false,
+                    "occupant": "Anna"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Amine",
+                "Imran",
+                "Tim",
+                "Anna"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Kristin",
+                    "free": false,
+                    "occupant": "Kristin"
+                },
+                {
+                    "_Seat__occupant": "\u017divile",
+                    "free": false,
+                    "occupant": "\u017divile"
+                },
+                {
+                    "_Seat__occupant": "Jens",
+                    "free": false,
+                    "occupant": "Jens"
+                },
+                {
+                    "_Seat__occupant": "Sandrine",
+                    "free": false,
+                    "occupant": "Sandrine"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Kristin",
+                "\u017divile",
+                "Jens",
+                "Sandrine"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Hamideh",
+                    "free": false,
+                    "occupant": "Hamideh"
+                },
+                {
+                    "_Seat__occupant": "Aleksei",
+                    "free": false,
+                    "occupant": "Aleksei"
+                },
+                {
+                    "_Seat__occupant": "Astha",
+                    "free": false,
+                    "occupant": "Astha"
+                },
+                {
+                    "_Seat__occupant": "Esra",
+                    "free": false,
+                    "occupant": "Esra"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Hamideh",
+                "Aleksei",
+                "Astha",
+                "Esra"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Viktor",
+                    "free": false,
+                    "occupant": "Viktor"
+                },
+                {
+                    "_Seat__occupant": "Michiel",
+                    "free": false,
+                    "occupant": "Michiel"
+                },
+                {
+                    "_Seat__occupant": "Welederufeal",
+                    "free": false,
+                    "occupant": "Welederufeal"
+                },
+                {
+                    "_Seat__occupant": "Pierrick",
+                    "free": false,
+                    "occupant": "Pierrick"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Viktor",
+                "Michiel",
+                "Welederufeal",
+                "Pierrick"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 4,
+            "occupants": [
+                null,
+                null,
+                null,
+                null
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Nancy",
+                    "free": false,
+                    "occupant": "Nancy"
+                },
+                {
+                    "_Seat__occupant": "Faranges",
+                    "free": false,
+                    "occupant": "Faranges"
+                },
+                {
+                    "_Seat__occupant": "Intan K.",
+                    "free": false,
+                    "occupant": "Intan K."
+                },
+                {
+                    "_Seat__occupant": "Fr\u00e9d\u00e9ric",
+                    "free": false,
+                    "occupant": "Fr\u00e9d\u00e9ric"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Nancy",
+                "Faranges",
+                "Intan K.",
+                "Fr\u00e9d\u00e9ric"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Amine",
+                    "free": false,
+                    "occupant": "Amine"
+                },
+                {
+                    "_Seat__occupant": "Imran",
+                    "free": false,
+                    "occupant": "Imran"
+                },
+                {
+                    "_Seat__occupant": "Tim",
+                    "free": false,
+                    "occupant": "Tim"
+                },
+                {
+                    "_Seat__occupant": "Anna",
+                    "free": false,
+                    "occupant": "Anna"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Amine",
+                "Imran",
+                "Tim",
+                "Anna"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Kristin",
+                    "free": false,
+                    "occupant": "Kristin"
+                },
+                {
+                    "_Seat__occupant": "\u017divile",
+                    "free": false,
+                    "occupant": "\u017divile"
+                },
+                {
+                    "_Seat__occupant": "Jens",
+                    "free": false,
+                    "occupant": "Jens"
+                },
+                {
+                    "_Seat__occupant": "Sandrine",
+                    "free": false,
+                    "occupant": "Sandrine"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Kristin",
+                "\u017divile",
+                "Jens",
+                "Sandrine"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Hamideh",
+                    "free": false,
+                    "occupant": "Hamideh"
+                },
+                {
+                    "_Seat__occupant": "Aleksei",
+                    "free": false,
+                    "occupant": "Aleksei"
+                },
+                {
+                    "_Seat__occupant": "Astha",
+                    "free": false,
+                    "occupant": "Astha"
+                },
+                {
+                    "_Seat__occupant": "Esra",
+                    "free": false,
+                    "occupant": "Esra"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Hamideh",
+                "Aleksei",
+                "Astha",
+                "Esra"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": "Viktor",
+                    "free": false,
+                    "occupant": "Viktor"
+                },
+                {
+                    "_Seat__occupant": "Michiel",
+                    "free": false,
+                    "occupant": "Michiel"
+                },
+                {
+                    "_Seat__occupant": "Welederufeal",
+                    "free": false,
+                    "occupant": "Welederufeal"
+                },
+                {
+                    "_Seat__occupant": "Pierrick",
+                    "free": false,
+                    "occupant": "Pierrick"
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 0,
+            "occupants": [
+                "Viktor",
+                "Michiel",
+                "Welederufeal",
+                "Pierrick"
+            ]
+        },
+        {
+            "_Table__capacity": 4,
+            "_Table__seats": [
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                },
+                {
+                    "_Seat__occupant": null,
+                    "free": true,
+                    "occupant": null
+                }
+            ],
+            "capacity": 4,
+            "left_capacity": 4,
+            "occupants": [
+                null,
+                null,
+                null,
+                null
+            ]
+        }
+    ],
+    "capacity": 24,
+    "left_capacity": 4
+}

@@ -2,12 +2,21 @@ import csv
 import json
 from collections.abc import Iterable
 from pathlib import Path
-
-from challenge_openspace_classifier.utils.openspace import OpenSpace
-from challenge_openspace_classifier.utils.openspace_encoder import OpenspaceEncoder
+from typing import Callable, Type
 
 
 class FileUtils:
+    _ENCODER_REGISTRY: dict[Type, Type[json.JSONEncoder]] = {}
+
+    @classmethod
+    def register_encoder(cls, data_class: Type) -> Callable[[Type], Type]:
+        def decorator(encoder_class: Type) -> Type:
+            cls._ENCODER_REGISTRY[data_class] = encoder_class
+
+            return encoder_class
+
+        return decorator
+
     @staticmethod
     def from_csv(filepath: Path, header_name: str) -> list[str]:
         path = Path(filepath)
@@ -47,8 +56,9 @@ class FileUtils:
 
     @staticmethod
     def save_to_json(filepath: Path, obj: object) -> None:
+        custom_encoder = FileUtils._ENCODER_REGISTRY.get(obj.__class__, None)
         with open(filepath, mode="w", encoding="utf-8") as file:
-            if isinstance(obj, OpenSpace):
-                json.dump(obj, file, indent=4, cls=OpenspaceEncoder)
+            if custom_encoder:
+                json.dump(obj, file, indent=4, cls=custom_encoder)
             else:
                 json.dump(obj, file, indent=4)
